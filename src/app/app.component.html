@@ -1,3 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="menu">
+      <li style="font-size:27px; color:#fff"><img src="../qmelogo.png" alt="" width="50" height="50"/></li>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/books">Books</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+        <a (click)="login()" *ngIf="!loggedIn()" class="button">Login</a>
+        <img *ngIf="loggedIn()" src="{{currUser.picture}}" style="border-radius:50%; width:40px; height:40px;">
+        <a (click)="logout()" *ngIf="loggedIn()" class="button small">Logout</a>
+  </div>
+</div>
+<div class="row text-center">
+    <img src="../qmelogo.png" alt="" style="margin-top:15px; margin-bottom:20px;" />
+</div>
+<div class="page-wrapper">
+    <router-outlet></router-outlet>
+</div>
+

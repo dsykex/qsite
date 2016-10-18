@@ -1,14 +1,36 @@
 <!doctype html>
 <html>
 <head>
+  <base href="/">
+
   <meta charset="utf-8">
   <title>QSite</title>
-  <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/foundation-icons.css" />
+    <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/foundation.js"></script>
+      <!-- 1. Load libraries -->
+     <!-- Polyfill(s) for older browsers -->
 </head>
 <body>
   <app-root>Loading...</app-root>
+    <div class="reveal" id="passwordModal" class="text-center" data-reveal>
+    <h4 style="color:#0a0a0a">Enter the password.</h4>
+    <input type="text" [(ngModel)]="password" />
+    <a (click)="executeAdmin()" class="button radius">Go</a>
+  </div>
+  <script src="http://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
+
+
+  <script>
+       $(document).foundation();
+  </script>
 </body>
 </html>

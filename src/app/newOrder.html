@@ -1,0 +1,10 @@
+<p class="panel" *ngIf="book">Book Order For: {{book.title}} [ {{ book.id }} ]</p>
+<div class="row">
+    <input type="text" [(ngModel)]="order.username" placeholder="Whats Your Name?"/>
+    <input type="text" [(ngModel)]="order.location" placeholder="Where are you located?" />
+    <textarea [(ngModel)]="order.info" placeholder="Order Info" rows="6">
+    </textarea>
+</div>
+<div class="row">
+    <a (click)="addOrder()" class="button">Submit</a>
+</div>

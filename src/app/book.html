@@ -1,3 +1,6 @@
+<div class="row">
+<a *ngIf="currUser && currUser.rank =='a'" (click)="deleteBook()" class="button">Delete Book</a>
+</div>
 <div class="row text-center animated fadeIn" *ngIf="book">
     <img class="hide-for-small-only" src="{{book.picture}}" alt="" style="min-height:300px; max-height:300px; min-width: 300px; max-width: 300px"/>
 
@@ -5,5 +8,8 @@
     <h2>{{ book.title }}</h2>
     <p style="color:#fff; font-style:italic; margin-top:-10px;">By, {{ book.author }}</p>
     <p style="color:#ccc; font-weight:bold; font-size:25px;">${{ book.price }}</p>
-    <p class="panel low-opacity">{{ book.description }}</p>
+    <p class="panel low-opacity">{{ book.description }} <br><p>Added, {{book.createdAt | amTimeAgo }}</p></p>
+</div>
+<div class="row text-center">
+    <a *ngIf="currUser" routerLink="/new-order/{{book.id}}" class="button primary">Place An Order!</a>
 </div>

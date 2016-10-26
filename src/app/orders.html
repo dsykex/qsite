@@ -1,0 +1,5 @@
+<div *ngIf="orders" class="row">
+    <div class="panel" *ngFor="let order of orders">
+        <p>{{ order.username }} Ordered, {{ getBook(order.book_id).title }}</p>
+    </div>
+</div>

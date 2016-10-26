@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Global} from './Global';
 import {Http} from '@angular/http';
-import {Params, ActivatedRoute} from '@angular/router';
+import {Params, ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     templateUrl: './book.html'
@@ -10,7 +10,7 @@ import {Params, ActivatedRoute} from '@angular/router';
 export class BookDetail extends Global{
     book: any = {};
 
-    constructor(public http: Http, private route: ActivatedRoute){
+    constructor(public http: Http, private route: ActivatedRoute,private router: Router){
         super(http);
     }
 
@@ -23,5 +23,12 @@ export class BookDetail extends Global{
                 }
             })
         });
+    }
+
+    deleteBook(){
+        this.insertData('DELETE FROM products WHERE id='+this.book.id).subscribe(data=>{
+            console.log(data);
+            this.router.navigate(['/books']);
+        })
     }
 }

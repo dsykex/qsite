@@ -10,16 +10,12 @@ export class Global {
     db_username: string = 'flypaper_scmgr';
     db_password: string = 'maxwel123';
     currUser: any;
-    lock = new Auth0Lock('ubHsCFWxl5rKW4s5BvqczsigypeBnNrs', 'dsykes.auth0.com', {
-        auth: {
-            redirectUrl: 'http://localhost:4200/'
-        }
-    });
+    lock = new Auth0Lock('EH3oiGZw9GTOFfoa91xlSP4C9RfYfsXk', 'dsykes.auth0.com', {});
 
     constructor(public http: Http){
         this.currUser = JSON.parse(localStorage.getItem('profile'));
         if(this.currUser){
-            console.log(this.currUser);
+           
             this.getObject('users', 'email', this.currUser.email).subscribe(data => {
                 
                 if(!data.email){
@@ -35,12 +31,10 @@ export class Global {
                 }else{
                     let pic = this.currUser.picture;
                     this.currUser = data;
-                    console.log(this.currUser);
                 }
             });
         }
 
-        // If The User Just Authenticated 
         this.lock.on("authenticated", (authResult) => {
             localStorage.setItem('id_token', authResult.idToken);
             this.currUser = authResult;
@@ -61,13 +55,11 @@ export class Global {
                         this.insertData('INSERT INTO `users` (createdAt, email, picture, rank) VALUES(NOW(), "'+this.currUser.email+'", "'+this.currUser.picture+'", "m");').subscribe(data => {
                             this.getObject('users', 'email', this.currUser.email).subscribe(userData => {
                                 this.currUser = userData;
-                                console.log(this.currUser);
                             })
                         });
                     }else{
                         let pic = this.currUser.picture;
                         this.currUser = data;
-                        console.log(this.currUser);
                     }
                 });
             });
@@ -108,7 +100,7 @@ export class Global {
             db_password: this.db_password,
             query: query
         };
-        return this.http.post('http://dsykes.net16.net/update.php', conData).map(res => res.json());
+        return this.http.post('http://dsykes.net16.net/update.php', conData).map(res => res);
     }
 
     getObject(db, col, val){

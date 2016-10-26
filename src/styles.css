@@ -30,6 +30,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     box-shadow: inset 0px 0px 20px 10px rgba(0,0,0,0.6);
 }
 
+input[type="text"]{
+    background:#0a0a0a;
+    border-radius:5px;
+}
+
+textarea{
+    background: #0a0a0a;
+    border-radius:5px;
+}
+
 .top-bar ul{
     background: none;
 }

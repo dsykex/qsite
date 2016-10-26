@@ -1,3 +1,15 @@
 <div class="row">
-    
+    <input type="text" [(ngModel)]="book.title" placeholder="Title" />
+    <textarea [(ngModel)]="book.description" rows="6" placeholder="Description"></textarea>
+    <input type="text" [(ngModel)]="book.price" placeholder="Price"/>
+    <input type="text" [(ngModel)]="book.author" placeholder="Author" />
+    <input type="file" class="button"
+       ngFileSelect
+       [options]="options"
+       (onUpload)="handleUpload($event)">
+       res: {{ uploadFile }}
+       <img src="http://dsykes.net16.net/uploads/{{uploadFile}}" width="200" height="200">
+</div>
+<div class="row">
+       <a class="button" (click)="addBook()">Submit</a>
 </div>

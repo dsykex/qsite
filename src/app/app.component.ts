@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {Global} from './Global';
 import {Http} from '@angular/http';
 import {RouterModule} from '@angular/router';
-
 import 'rxjs/add/operator/map';
 
 @Component({

@@ -1,17 +1,19 @@
 <div class="animated fadeIn" *ngIf="books">
-    <a *ngIf="currUser && currUser.rank == 'a'" data-open="passwordModal" class="button radius text-center">Add a Book</a>
-
+    <div class="row">
+        <a *ngIf="currUser && currUser.rank == 'a'" routerLink="/create-book" class="button radius text-center">Add a Book</a>
+    </div>
+    
     <div class="row text-center">
-        <div class="small-3 columns animated fadeIn hide-for-small-only" style="float:left;" *ngFor="let book of books">
+        <div class="small-3 columns animated fadeIn hide-for-small-only" style="float:left; margin-bottom:15px;" *ngFor="let book of books">
             <div class="panel">
-                <a routerLink="/book/{{book.id}}"><img src="{{book.picture}}" alt="" /></a>
+                <a routerLink="/book/{{book.id}}"><img src="{{book.picture}}" alt="" style="height:200px; width:100%;"/></a>
                 <h3>{{book.title}}</h3>
                 <p>By {{ book.author }}</p>
             </div>
         </div>
-        <div class="small-12 columns animated fadeIn show-for-small-only" style="float:left;" *ngFor="let book of books">
+        <div class="small-12 columns animated fadeIn show-for-small-only" style="float:left; margin-bottom:15px;" *ngFor="let book of books">
             <div class="panel">
-                <a routerLink="/book/{{book.id}}"><img src="{{book.picture}}" alt="" /></a>
+                <a routerLink="/book/{{book.id}}"><img src="{{book.picture}}" alt="" style="height:200px; width:100%;"/></a>
                 <h3>{{book.title}}</h3>
                 <p>By {{ book.author }}</p>
             </div>
